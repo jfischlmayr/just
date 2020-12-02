@@ -159,7 +159,7 @@
     color: rgb(255, 255, 240);
 }
 
-h1 {
+h1 #main {
     font-family: Bebas Neue;
     font-weight: bold;
     font-size: 48px;
