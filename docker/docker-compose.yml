@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+    backend:
+        image: thejano/just-webapi
+        ports: 
+            - 801:80
+    frontend:
+        image: thejano/just-frontend
+        ports: 
+            - 3001:3000
+    database:
+        image: thejano/just-db
+        ports: 
+            - 33061:3306
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: wearejustpros
+            MYSQL_DATABASE: just
+            MYSQL_USER: root
+            MYSQL_PASSWORD: wearejustpros
