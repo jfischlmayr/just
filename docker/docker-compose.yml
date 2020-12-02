@@ -1,16 +1,13 @@
 version: "3.8"
 
 services:
-    backend:
-        image: thejano/just-webapi
-        ports: 
-            - 801:80
     frontend:
-        image: thejano/just-frontend
+        build: ../frontend
+        image: just-frontend
         ports: 
             - 3001:3000
     database:
-        image: thejano/just-db
+        image: mysql/mysql-server
         ports: 
             - 33061:3306
         restart: always
