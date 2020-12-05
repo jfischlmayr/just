@@ -170,3 +170,19 @@ h1 #main {
 body {
     background: rgba(55, 83, 152, 1);
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+    line-height: 1.5;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 400%;
+    color: #FFFFF0;
+}
