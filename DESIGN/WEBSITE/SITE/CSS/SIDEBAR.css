@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-:root {
+ :root {
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -91,6 +91,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: 'Bebas Neue', cursive;
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
@@ -355,7 +356,7 @@ progress {
     -webkit-appearance: none;
 }
 
-::-webkit-file-upload-button {
+ ::-webkit-file-upload-button {
     font: inherit;
     -webkit-appearance: button;
 }
@@ -392,11 +393,13 @@ h6,
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
+    font-family: 'Bebas Neue', cursive;
 }
 
 h1,
 .h1 {
     font-size: 2.5rem;
+    font-family: 'Bebas Neue', cursive;
 }
 
 h2,
@@ -551,7 +554,7 @@ a>code {
 kbd {
     padding: 0.2rem 0.4rem;
     font-size: 87.5%;
-    color: #fff;
+    color: #000;
     background-color: #212529;
     border-radius: 0.2rem;
 }
@@ -2004,7 +2007,7 @@ pre code {
 }
 
 .table .thead-dark th {
-    color: #fff;
+    color: #000;
     background-color: #343a40;
     border-color: #454d55;
 }
@@ -2016,7 +2019,7 @@ pre code {
 }
 
 .table-dark {
-    color: #fff;
+    color: ##000;
     background-color: #343a40;
 }
 
@@ -9016,7 +9019,7 @@ button.bg-dark:focus {
 }
 
 .p-4 {
-    padding: 1.5rem !important;
+    padding: 1.5rem;
 }
 
 .pt-4,
@@ -10956,9 +10959,9 @@ h5,
 .h4,
 .h5 {
     line-height: 1.5;
-    font-weight: 400;
-    font-family: "Poppins", Arial, sans-serif;
-    color: #000;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 400%;
+    color: #FFFFF0;
 }
 
 .ftco-section {
@@ -10995,36 +10998,18 @@ h5,
 #sidebar {
     min-width: 270px;
     max-width: 270px;
-    background: #3445b4;
-    color: #fff;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background: #FFFFF0;
+    color: #000;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
     position: relative;
 }
 
-#sidebar .h6 {
-    color: #fff;
-}
-
-#sidebar.active {
-    margin-left: -270px;
-}
-
-#sidebar h1 {
-    margin-bottom: 20px;
-    font-weight: 700;
-    font-size: 30px;
-}
-
-#sidebar h1 .logo {
-    color: #fff;
-}
-
-#sidebar h1 .logo span {
-    font-size: 14px;
-    color: #44bef1;
-    display: block;
+#sidebar #logo img {
+    size: 2090px;
 }
 
 #sidebar ul.components {
@@ -11046,21 +11031,23 @@ h5,
 #sidebar ul li a {
     padding: 10px 0;
     display: block;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(70, 70, 70);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #sidebar ul li a span {
-    color: #44bef1;
+    color: #000;
 }
 
 #sidebar ul li a:hover {
-    color: #fff;
+    color: #000;
+    font-weight: 540;
 }
 
 #sidebar ul li.active>a {
     background: transparent;
-    color: #fff;
+    color: #000;
+    font-weight: 540;
 }
 
 @media (max-width: 991.98px) {
@@ -11156,59 +11143,4 @@ a[data-toggle="collapse"] {
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-}
-
-.btn.btn-primary {
-    background: #3445b4;
-    border-color: #3445b4;
-}
-
-.btn.btn-primary:hover,
-.btn.btn-primary:focus {
-    background: #3445b4 !important;
-    border-color: #3445b4 !important;
-}
-
-.footer p {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.form-control {
-    height: 40px !important;
-    background: #fff;
-    color: #000;
-    font-size: 13px;
-    border-radius: 4px;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: transparent;
-}
-
-.form-control:focus,
-.form-control:active {
-    border-color: #000;
-}
-
-.form-control::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.form-control::-moz-placeholder {
-    /* Firefox 19+ */
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.form-control:-ms-input-placeholder {
-    /* IE 10+ */
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.form-control:-moz-placeholder {
-    /* Firefox 18- */
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.subscribe-form .form-control {
-    background: #3b4ec6;
 }
