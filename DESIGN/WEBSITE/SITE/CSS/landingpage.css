@@ -187,6 +187,17 @@ h5,
     color: #FFFFF0;
 }
 
-#button_home {
-    color: #FFFFF0;
+
+/*TODO LIST*/
+
+.card {
+    background: #FFFFF0;
+}
+
+.card {
+    transition: border-color ease-in-out 150ms;
+}
+
+.card:hover {
+    color: #375398;
 }

@@ -58,13 +58,33 @@
         <div id="content" class="p-4 p-md-5 pt-5">
             <h1>Willkommen!</h1>
             <p id="button_home">
-                <button type="submit" class="btn-lg btn-default shadow" style="margin-right: 2%;padding-bottom:4%; padding-top: 4%; padding-left:4.5%; padding-right:4.5%; "><span class="fa fa-calendar "></span></button>
-                <button type="submit" class="btn-lg btn-default shadow" style="margin-right: 2%;padding-bottom:4%; padding-top: 4%; padding-left:4.5%; padding-right:4.5%; "><span class="fa fa-list "></span></button>
-                <button type="submit" class="btn-lg btn-default shadow" style="margin-right: 2%;padding-bottom:4%; padding-top: 4%; padding-left:4.5%; padding-right:4.5%; "><span class="fa fa-video-camera "></span></button>
-                <button type="submit" class="btn-lg btn-default shadow" style="padding-bottom:4%; padding-top: 4%; padding-left:4.5%; padding-right:4.5%; "><span class="fa fa-cog "></span></button>
+                <button type="submit" class="btn-lg btn-default shadow" style="margin-right: 1%;"><span class="fa fa-calendar "></span></button>
+                <button type="submit" class="btn-lg btn-default shadow" style="margin-right: 1%;"><span class="fa fa-list "></span></button>
+                <button type="submit" class="btn-lg btn-default shadow" style="margin-right: 1%;"><span class="fa fa-video-camera "></span></button>
+                <button type="submit" class="btn-lg btn-default shadow"><span class="fa fa-cog "></span></button>
             </p>
             <h1>Anstehende Tasks</h1>
             <p>
+                <!-- TODO LIST-->
+                <div class="main container rounded p-3 mt-3">
+
+                    <div class="cards">
+                        <div class="card">
+                            <div class="card-block">
+                                <button id="delete" type="button" class="btn btn-link float-right"></button>
+                                <button id="done" type="button" class="btn btn-link float-right mr-3">✔️</button>
+                                <p class="card-title lead">Learn React</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-block">
+                                <button id="delete" type="button" class="btn btn-link float-right">❌</button>
+                                <button id="done" type="button" class="btn btn-link float-right mr-3">✔️</button>
+                                <del><p class="card-title lead">Write HTML in my JavaScript</p></del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </p>
             <h1>Termine in den nächsten 7 Tagen</h1>
@@ -76,6 +96,6 @@
     <script src="js/popper.js "></script>
     <script src="js/bootstrap.min.js "></script>
     <script src="js/main.js "></script>
+    <script src="JAVASCRIPT/list.js"></script>
 </body>
-
-</html>
+< /html>
