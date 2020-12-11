@@ -71,7 +71,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #fff;
+    background-color: #375398;
 }
 
 [tabindex="-1"]:focus {
@@ -472,7 +472,7 @@ small,
 mark,
 .mark {
     padding: 0.2em;
-    background-color: #fcf8e3;
+    background-color: #375398;
 }
 
 .list-unstyled {
