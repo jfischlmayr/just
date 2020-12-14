@@ -21,8 +21,11 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<JustDataContext>(options => options.UseMySql(
-                Configuration["ConnectionStrings:DefaultConnection"]));
+            string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContextPool<JustDataContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+
+            //services.AddDbContext<JustDataContext>(options => options.UseMySql(
+            //    Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddCors(options => options.AddDefaultPolicy(builder =>
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod()));

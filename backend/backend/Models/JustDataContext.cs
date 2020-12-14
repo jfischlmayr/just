@@ -13,6 +13,7 @@ namespace backend.Models
         { }
 
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Address> Address { get; set; }
 
     }
 }
