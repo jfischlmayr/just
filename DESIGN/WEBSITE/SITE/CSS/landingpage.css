@@ -186,3 +186,18 @@ h5,
     font-size: 400%;
     color: #FFFFF0;
 }
+
+
+/*TODO LIST*/
+
+.card {
+    background: #FFFFF0;
+}
+
+.card {
+    transition: border-color ease-in-out 150ms;
+}
+
+.card:hover {
+    color: #375398;
+}
