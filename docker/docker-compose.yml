@@ -1,10 +1,6 @@
 version: "3.8"
 
 services:
-    backend:
-        build: ../backend
-        ports:
-            - 8080:80
     database:
         image: mysql/mysql-server
         ports: 
@@ -15,3 +11,7 @@ services:
             MYSQL_DATABASE: just
             MYSQL_USER: root
             MYSQL_PASSWORD: wearejustpros
+    backend:
+        build: ../backend
+        ports:
+            - 8080:80
