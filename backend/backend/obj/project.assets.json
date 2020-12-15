@@ -4781,23 +4781,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\janfi\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Acer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janfi\\Desktop\\4CHIF\\just\\backend\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\Acer\\Desktop\\Schule\\4DHIF\\JUST\\just\\backend\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\janfi\\Desktop\\4CHIF\\just\\backend\\backend\\backend.csproj",
-      "packagesPath": "C:\\Users\\janfi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janfi\\Desktop\\4CHIF\\just\\backend\\backend\\obj\\",
+      "projectPath": "C:\\Users\\Acer\\Desktop\\Schule\\4DHIF\\JUST\\just\\backend\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Acer\\Desktop\\Schule\\4DHIF\\JUST\\just\\backend\\backend\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\janfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4888,7 +4884,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200-preview.20601.7\\RuntimeIdentifierGraph.json"
       }
     }
   }
