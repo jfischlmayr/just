@@ -21,6 +21,27 @@ namespace backend.Controllers
             _context = context;
         }
 
+        [Route("init")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Project>>> InitProjects()
+        {
+            Address address = new();
+            address.Street = "Limesstraße";
+            address.HouseNumber = "12-14";
+            address.City = "Leonding";
+            address.ZIPCode = 4060;
+
+            Project project = new();
+            project.Title = "Just";
+            project.From = DateTime.Parse("09-10-2020");
+            project.To = DateTime.Parse("09-05-2021");
+            project.Address = address;
+
+            await _context.AddAsync(project);
+            await _context.SaveChangesAsync();
+            return await _context.Projects.ToListAsync();
+        }
+
         // GET: api/<ProjectController>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
