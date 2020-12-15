@@ -1,7 +1,7 @@
 version: "3.8"
 
 networks:
-    app-net:
+    just-net:
         driver: bridge
 
 services:
@@ -16,7 +16,7 @@ services:
             MYSQL_USER: dev
             MYSQL_PASSWORD: wearejustpros
         networks:
-            - app-net
+            - just-net
 
     backend:
         build: ../backend
@@ -25,4 +25,4 @@ services:
         environment:
             ConnectionStrings__DefaultConnection: "Server=database;Port=3306;Database=just;User=dev;Password=wearejustpros"
         networks:
-            - app-net
+            - just-net
