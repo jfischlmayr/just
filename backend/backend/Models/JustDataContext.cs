@@ -13,7 +13,14 @@ namespace backend.Models
         { }
 
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Task> Tasks { get; set; }
+        public DbSet<ProjectMember> ProjectMembers { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<MemberRole> MemberRoles { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Address> Address { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<AppointmentMember> AppointmentMembers { get; set; }
 
     }
 }

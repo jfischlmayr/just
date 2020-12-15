@@ -11,3 +11,7 @@ services:
             MYSQL_DATABASE: just
             MYSQL_USER: root
             MYSQL_PASSWORD: wearejustpros
+    backend:
+        build: ../backend
+        ports:
+            - 8080:80
