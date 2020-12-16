@@ -21,6 +21,7 @@ namespace backend.Models
         public DbSet<Address> Address { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<AppointmentMember> AppointmentMembers { get; set; }
+        public DbSet<ToDo> ToDos { get; set; }
 
     }
 }
