@@ -1,8 +1,8 @@
 
-
 .navbar {
     background: #FFFFF0;
-    height: 80px;
+    width: 250px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,16 +17,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
-    max-width: 1500px;
+    width: 250px;
+    height: 100vh;
 }
 
 .navbar-logo {
     background: #FFFFF0;
-    width: auto;
-    height: 1%;
-    justify-self: start;
-    margin-left: 20px;
+    width: 0.4%;
+    position: fixed;
+    height: auto;
+    color: black;
+    font-size: 2em;
     cursor: pointer;
     text-decoration: none;
     display: flex;
@@ -34,20 +35,19 @@
 }
 
 .fa-typo3 {
-
     margin-left: 0.5rem;
     font-size: 1.8rem;
 }
 
 .nav-menu {
     background: #FFFFF0;
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 10px;
     list-style: none;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 10px;
     text-align: center;
-    width: 60vw;
     justify-content: end;
+    margin-top: 0;
     margin-right: 2rem;
 }
 
@@ -71,7 +71,9 @@
 }
 
 .fa-bars {
-    color: #fff;
+    background: transparent;
+    background-color: transparent;
+    color: #000;
 }
 
 .nav-links-mobile {
@@ -90,8 +92,8 @@
     .nav-menu {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 90vh;
+        height: auto;
+        width: auto;
         position: absolute;
         top: 80px;
         left: -100%;
@@ -100,11 +102,13 @@
     }
 
     .nav-menu.active {
-        background: #242222;
+        background: #FFFFF0;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 1;
+
+
     }
 
     .nav-links {
@@ -112,13 +116,10 @@
         padding: 2rem;
         width: 100%;
         display: table;
+
+
     }
 
-    .nav-links:hover {
-        background-color: #fff;
-        color: #242424;
-        border-radius: 0;
-    }
 
     .navbar-logo {
         position: absolute;
@@ -135,11 +136,14 @@
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
+        background: transparent;
     }
 
     .fa-times {
-        color: #fff;
-        font-size: 2rem;
+        background: transparent;
+
+        color: #000;
+
     }
 
     .nav-links-mobile {
@@ -151,15 +155,8 @@
         text-decoration: none;
         font-size: 1.5rem;
         background-color: transparent;
-        color: #fff;
+        color: black;
         padding: 14px 20px;
-        border: 1px solid #fff;
         transition: all 0.3s ease-out;
-    }
-
-    .nav-links-mobile:hover {
-        background: #fff;
-        color: #242424;
-        transition: 250ms;
     }
 }

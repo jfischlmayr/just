@@ -7,9 +7,11 @@
 }
 
 .home,
-.services,
-.products,
+.calendar,
+.todo,
+.projects,
 .sign-up {
+  background: #375398;
   display: flex;
   height: 90vh;
   align-items: center;
@@ -17,29 +19,24 @@
   font-size: 3rem;
 }
 
-.services {
-  background-image: url('./images/img-2.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
+.calendar {
+  color: #000;
   font-size: 100px;
 }
 
-.products {
-  background-image: url('./images/img-1.jpg');
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
+.todo {
+  color: #000;
+  font-size: 100px;
+}
+
+.projects {
+
+  color: #000;
   font-size: 100px;
 }
 
 .sign-up {
-  background-image: url('./images/img-8.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
+
+  color: #000;
   font-size: 100px;
 }
