@@ -1,6 +1,4 @@
-
 .navbar {
-    background: #FFFFF0;
     width: 250px;
     height: 100vh;
     display: flex;
@@ -22,7 +20,7 @@
 }
 
 .navbar-logo {
-    background: #FFFFF0;
+
     width: 0.4%;
     position: fixed;
     height: auto;
@@ -61,7 +59,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0rem 0rem;
     height: 100%;
 }
 
@@ -101,14 +99,21 @@
         transition: all 0.5s ease;
     }
 
+    .navbar-container {
+        background: #FFFFF0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 100vh;
+    }
+
     .nav-menu.active {
         background: #FFFFF0;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 1;
-
-
     }
 
     .nav-links {
