@@ -1,7 +1,4 @@
 import React from 'react';
-import '../css/settings.css';
-import '../css/pages.css';
-
 
 const Settings = () => {
     return (

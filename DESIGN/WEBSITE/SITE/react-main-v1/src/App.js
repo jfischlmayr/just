@@ -8,7 +8,6 @@ import Todo from './pages/Todo';
 import Login from './pages/Login';
 import Settings from "./pages/Settings";
 
-
 function App() {
   return (
       <>
@@ -19,7 +18,7 @@ function App() {
             <Route path='/todo' component={Todo}/>
             <Route path='/projects' component={Projects}/>
             <Route path='/calendar' component={Calendar}/>
-            <Route path='/settings' compontent={Settings}/>
+            <Route path='/settings' component={Settings}/>
             <Route path='/login' component={Login}/>
 
           </Switch>
