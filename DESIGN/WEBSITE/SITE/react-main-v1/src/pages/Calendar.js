@@ -1,4 +1,6 @@
 import React from 'react';
+import '../css/pages.css';
+import '../css/calendar.css';
 
 const Calendar = () => {
     return (

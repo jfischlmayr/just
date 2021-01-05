@@ -1,5 +1,6 @@
 import React from 'react';
-import '../css/home.css'
+import '../css/home.css';
+import '../css/pages.css';
 import {Button} from '../components/Button';
 import * as AiIcons from 'react-icons/ai';
 import * as HiIcons from 'react-icons/hi';
