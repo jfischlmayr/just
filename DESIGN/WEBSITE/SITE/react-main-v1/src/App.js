@@ -6,6 +6,7 @@ import Calendar from './pages/Calendar';
 import Projects from './pages/Projects';
 import Todo from './pages/Todo';
 import Login from './pages/Login';
+import Settings from "./pages/Settings";
 
 
 function App() {
@@ -15,9 +16,10 @@ function App() {
           <Navbar />
           <Switch>
             <Route path='/' exact component={Home}/>
-            <Route path='/todo' exact component={Todo}/>
+            <Route path='/todo' component={Todo}/>
             <Route path='/projects' component={Projects}/>
             <Route path='/calendar' component={Calendar}/>
+            <Route path='/settings' compontent={Settings}/>
             <Route path='/login' component={Login}/>
 
           </Switch>
