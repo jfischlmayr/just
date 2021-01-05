@@ -1,0 +1,16 @@
+.todo{
+    background: #375398;
+    height: 100vh;
+    margin-left: 250px;
+}
+
+h1{
+    font-size: 3rem;
+    color: white;
+    margin-left: 1em;
+    padding-top: 1em;
+}
+
+.button-area{
+    margin-left: 3em;
+}
