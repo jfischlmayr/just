@@ -1,4 +1,6 @@
 import React from 'react';
+import '../css/pages.css';
+
 
 const Login = () => {
     return (

@@ -1,5 +1,7 @@
 import React from 'react';
 import '../css/pages.css';
+import '../css/projects.css';
+
 const Projects = () => {
     return (
         <div className='projects'>
