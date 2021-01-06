@@ -4,5 +4,4 @@ export class Address {
     houseNumber!: string
     City!: string
     zipCode!: number
-
 }
