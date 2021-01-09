@@ -39,7 +39,7 @@
     border-width: 0 5px 5px;
 }
 
-.dropdown .selected-value {
+.dropdown .selected-value input {
 
     line-height: 1.5;
     font-size: 1rem;
@@ -58,7 +58,8 @@
 .dropdown .options {
     display: none;
     background-color: var(--white);
-    border: 1px solid #ccc;
+    border: 1px solid var(--white);
+    border-radius: 4px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
     box-sizing: border-box;
     margin-top: -1px;
@@ -87,5 +88,4 @@
 .dropdown .option.selected,
 .dropdown .option:hover {
     background-color: var(--hover);
-    color: #333;
 }
