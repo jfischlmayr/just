@@ -13,6 +13,8 @@ const Todo = () => {
                 <Dropdown
                     prompt='Select project... '
                     options={projects}
+                    id='id'
+                    label='name'
                     value={value}
                     onChange={val => setValue(val)}
                 />
