@@ -4,6 +4,8 @@ import '../css/pages.css';
 import {Button} from '../components/Button';
 import * as AiIcons from 'react-icons/ai';
 import * as HiIcons from 'react-icons/hi';
+import TodoListComponent from "../components/TodoListComponent";
+
 
 
 function Home() {
@@ -18,6 +20,9 @@ function Home() {
 
             </div>
             <h1>Anstehende Tasks</h1>
+            <div className='todo-area'>
+                <TodoListComponent/>
+            </div>
             <h1>Anstehende Termine</h1>
         </div>
     );
