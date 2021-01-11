@@ -9,7 +9,8 @@ const STYLES = [
     "btn--primary--outline",
     "btn--warning--outline",
     "btn--danger--outline",
-    "btn--success--outline"
+    "btn--success--outline",
+    "btn-submit-solid"
 ]
 
 const SIZES=[

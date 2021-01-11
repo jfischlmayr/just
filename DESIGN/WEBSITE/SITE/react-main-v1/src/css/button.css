@@ -23,6 +23,13 @@
 }
 
 /*Button colors and styles*/
+.btn--submit-solid{
+    background-color: var(--white);
+    color: var(--dark);
+    filter: drop-shadow(0.2rem 0.2rem 0.2rem var(--shadow)) !important;
+    border: none;
+}
+
 .btn--primary--solid{
     background-color: var(--white);
     color: var(--dark);
