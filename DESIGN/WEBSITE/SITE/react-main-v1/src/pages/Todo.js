@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Dropdown from "../components/dropdown";
-import projects from '../json test data/projects.json'
+import projects from '../json test data/projects.json';
+import TodoForm from "../components/TodoForm";
+import '../css/todo.css';
 
 const Todo = () => {
 
@@ -18,6 +20,10 @@ const Todo = () => {
                     value={value}
                     onChange={val => setValue(val)}
                 />
+
+                <div className='todoWrapper'>
+                    <TodoForm/>
+                </div>
 
             </div>
         </div>
