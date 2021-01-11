@@ -38,7 +38,7 @@ const TodoForm = (props) => {
                        ref={inputRef}
                 />
 
-                <Button onClick={handleSubmit} type="button" buttonStyle='btn--primary--solid' buttonSize='btn--small'>Submit Todo</Button>
+                <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Submit Todo</Button>
             </form>
         </div>
     );

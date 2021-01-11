@@ -3,7 +3,6 @@ import TodoForm from "./TodoForm";
 import '../css/TodoListComponent.css';
 import TodoItem from "./TodoItem";
 
-
 const TodoListComponent = () => {
     const [todos, setTodos] = useState([]);
 
