@@ -3,6 +3,7 @@ import Dropdown from "../components/dropdown";
 import projects from '../json test data/projects.json';
 import TodoForm from "../components/TodoForm";
 import '../css/todo.css';
+import TodoListComponent from "../components/TodoListComponent";
 
 const Todo = () => {
 
@@ -22,7 +23,7 @@ const Todo = () => {
                 />
 
                 <div className='todoWrapper'>
-                    <TodoForm/>
+                    <TodoListComponent/>
                 </div>
 
             </div>
