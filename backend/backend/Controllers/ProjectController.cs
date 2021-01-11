@@ -78,7 +78,7 @@ namespace backend.Controllers
 
         // POST api/<ProjectController>
         [HttpPost]
-        public async Task<ActionResult<Project>> PostGame(Project project)
+        public async Task<ActionResult<Project>> PostProject(Project project)
         {
             _context.Projects.Add(project);
             await _context.SaveChangesAsync();

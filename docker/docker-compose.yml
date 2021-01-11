@@ -1,5 +1,9 @@
 version: "3.8"
 
+networks:
+    just-net:
+        driver: bridge
+
 services:
     database:
         image: mysql/mysql-server
@@ -9,9 +13,16 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: wearejustpros
             MYSQL_DATABASE: just
-            MYSQL_USER: root
+            MYSQL_USER: dev
             MYSQL_PASSWORD: wearejustpros
+        networks:
+            - just-net
+
     backend:
         build: ../backend
         ports:
             - 8080:80
+        environment:
+            ConnectionStrings__DefaultConnection: "Server=database;Port=3306;Database=just;User=dev;Password=wearejustpros"
+        networks:
+            - just-net
