@@ -4,6 +4,9 @@ networks:
     just-net:
         driver: bridge
 
+volumes:
+    just-volume:
+    
 services:
     database:
         image: mysql/mysql-server
@@ -15,6 +18,8 @@ services:
             MYSQL_DATABASE: just
             MYSQL_USER: dev
             MYSQL_PASSWORD: wearejustpros
+        volumes:
+            - just-volume:/home/volumes
         networks:
             - just-net
 

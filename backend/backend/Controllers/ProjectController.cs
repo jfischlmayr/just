@@ -39,6 +39,7 @@ namespace backend.Controllers
             project.Address = address;
 
             await _context.AddAsync(project);
+            await _context.SaveChangesAsync();
 
             address.Street = "Stadlerstraße";
             address.HouseNumber = "17";
@@ -51,6 +52,7 @@ namespace backend.Controllers
             project.To = DateTime.Parse("09-05-2021");
             project.Address = address;
 
+            await _context.AddAsync(project);
             await _context.SaveChangesAsync();
             return await _context.Projects.ToListAsync();
         }
