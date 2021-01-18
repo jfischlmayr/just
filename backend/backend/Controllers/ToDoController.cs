@@ -45,12 +45,12 @@ namespace backend.Controllers
 
         // POST api/<ToDoController>
         [HttpPost]
-        public async Task<ActionResult<ToDo>> PostToDo(Project project)
+        public async Task<ActionResult<ToDo>> PostToDo(ToDo todo)
         {
-            _context.Projects.Add(project);
+            _context.ToDos.Add(todo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetToDo", new { id = project.ID }, project);
+            return CreatedAtAction("GetToDo", new { id = todo.ID }, todo);
         }
 
         // PUT api/<ToDoController>/5
