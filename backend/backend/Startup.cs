@@ -24,9 +24,6 @@ namespace backend
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<JustDataContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
 
-            //services.AddDbContext<JustDataContext>(options => options.UseMySql(
-            //    Configuration["ConnectionStrings:DefaultConnection"]));
-
             services.AddCors(options => options.AddDefaultPolicy(builder =>
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod()));
 
