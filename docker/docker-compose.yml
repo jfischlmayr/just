@@ -16,7 +16,7 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: wearejustpros
             MYSQL_DATABASE: just
-            MYSQL_USER: dev
+            MYSQL_USER: root
             MYSQL_PASSWORD: wearejustpros
         volumes:
             - just-volume:/home/volumes
