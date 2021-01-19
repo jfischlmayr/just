@@ -28,18 +28,6 @@ namespace backend.Controllers
             Project project = new();
             Address address = new();
 
-            address.Street = "Limesstraße";
-            address.HouseNumber = "12-14";
-            address.City = "Leonding";
-            address.ZIPCode = 4060;
-
-            project.Title = "Just";
-            project.From = DateTime.Parse("09-10-2020");
-            project.To = DateTime.Parse("09-05-2021");
-            project.Address = address;
-
-            await _context.AddAsync(project);
-
             address.Street = "Stadlerstraße";
             address.HouseNumber = "17";
             address.City = "Linz";
@@ -51,6 +39,7 @@ namespace backend.Controllers
             project.To = DateTime.Parse("09-05-2021");
             project.Address = address;
 
+            await _context.AddAsync(project);
             await _context.SaveChangesAsync();
             return await _context.Projects.ToListAsync();
         }
