@@ -15,6 +15,5 @@ namespace backend.Models
         [MaxLength(10000)]
         public string Description { get; set; }
         public DateTime To { get; set; }
-
     }
 }
