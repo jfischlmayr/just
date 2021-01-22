@@ -12,9 +12,8 @@ namespace backend.Models
         public int ID { get; set; }
         [MaxLength(100)]
         public string Name { get; set; }
-        [MaxLength(1000)]
-        public string Description { get; set; }
-        public int MemberID { get; set; }
-        public int ProjectID { get; set; }
+        public bool Done { get; set; }
+        public int? MemberID { get; set; }
+        public int? ProjectID { get; set; }
     }
 }
