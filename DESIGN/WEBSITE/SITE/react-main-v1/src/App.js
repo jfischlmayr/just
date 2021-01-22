@@ -7,7 +7,6 @@ import Projects from './pages/Projects';
 import Todo from './pages/Todo';
 import Login from './pages/Login';
 import Settings from "./pages/Settings";
-import HttpController from "./components/HttpController";
 
 function App() {
 

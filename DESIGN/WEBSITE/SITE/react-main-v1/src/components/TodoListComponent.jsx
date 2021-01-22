@@ -1,36 +1,68 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TodoForm from "./TodoForm";
 import '../css/TodoListComponent.css';
 import TodoItem from "./TodoItem";
-
-
+import axios from "axios";
 
 const TodoListComponent = () => {
     const [todos, setTodos] = useState([]);
 
-    const url="localhost:8080/api/todos";
+    useEffect(() => {
+        axios.get('http://localhost:8080/api/todo', {})
+            .then(res => {
+                console.log(res);
+                setTodos(res.data);
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+    }, [])
 
 
-    function componentDidMount() {
-    fetch(url,{
-        Method:'GET'})
-        .then((res) => res.json())
-    }
+
+
+    /*const [] = useAxios({
+    });
+    /*useEffect(async () => {
+        const response = await fetch("http://localhost:8080/api/todo");
+        const data = await response.json();
+        const item = data.results[0];
+        console.log("fetch");
+    }, []);*/
 
 
     const addTodo = todo => {
-        if(!todo.text || /^\s*$/.test(todo.text)){
-            return;
-        }
-        const newTodos = [todo, ...todos]
-        setTodos(newTodos);
+        console.log(todo);
+        console.log(JSON.stringify(todo));
+
+        axios.post('http://localhost:8080/api/todo/', JSON.stringify(todo), {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                console.log(res);
+                const newTodos = [todo, ...todos]
+                setTodos(newTodos);
+            })
+            .catch(err =>{
+                console.log(err)
+            })
         console.log('added todo');
     };
 
     const removeTodo = id => {
-        const removeArr = [...todos].filter(todo => todo.id !== id);
+        //const removeArr = [...todos].filter(todo => todo.id !== id);
+        axios.delete(`http://localhost:8080/api/todo/${id}`)
+            .then(res => {
+                console.log(res);
+                const removeArr = [...todos].filter(todo => todo.id !== id);
+                setTodos(removeArr);
+            })
+            .catch(err =>{
+                console.log(err)
+            })
 
-        setTodos(removeArr);
         console.log('removed todo');
     };
 
@@ -49,9 +81,7 @@ const TodoListComponent = () => {
     return (
         <div className='todoList'>
             <TodoForm onSubmit={addTodo}/>
-            <TodoItem todos={
-                    todos
-            } completeTodo={completeTodo} removeTodo={removeTodo}
+            <TodoItem todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}
             />
         </div>
     );
