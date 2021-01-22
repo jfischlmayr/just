@@ -35,7 +35,7 @@ const TodoListComponent = () => {
         console.log(todo);
         console.log(JSON.stringify(todo));
 
-        axios.post('http://localhost:8080/api/todo', todo, {
+        axios.post('http://localhost:8080/api/todo/', JSON.stringify(todo), {
             headers: {
                 'Content-Type': 'application/json'
             }
