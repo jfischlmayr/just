@@ -8,7 +8,7 @@ const TodoListComponent = () => {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/todo', {})
+        axios.get('http://localhost:8080/api/tasks', {})
             .then(res => {
                 console.log(res);
                 setTodos(res.data);
@@ -18,7 +18,9 @@ const TodoListComponent = () => {
             })
     }, [])
 
-
+    const refreshPage = () => {
+        window.location.reload();
+    }
 
 
     /*const [] = useAxios({
@@ -33,27 +35,30 @@ const TodoListComponent = () => {
 
     const addTodo = todo => {
         console.log(todo);
+        console.log(todo.name);
         console.log(JSON.stringify(todo));
 
-        axios.post('http://localhost:8080/api/todo/', JSON.stringify(todo), {
+        axios.post('http://localhost:8080/api/tasks/', JSON.stringify(todo), {
             headers: {
                 'Content-Type': 'application/json'
             }
         })
             .then(res => {
                 console.log(res);
-                const newTodos = [todo, ...todos]
+                const newTodos = [todo.name, ...todos]
                 setTodos(newTodos);
+                refreshPage();
             })
             .catch(err =>{
                 console.log(err)
             })
+
         console.log('added todo');
     };
 
     const removeTodo = id => {
         //const removeArr = [...todos].filter(todo => todo.id !== id);
-        axios.delete(`http://localhost:8080/api/todo/${id}`)
+        axios.delete(`http://localhost:8080/api/tasks/${id}`)
             .then(res => {
                 console.log(res);
                 const removeArr = [...todos].filter(todo => todo.id !== id);
@@ -69,7 +74,7 @@ const TodoListComponent = () => {
     const completeTodo = id => {
         let updatedTodos = todos.map(todo => {
            if(todo.id === id){
-               todo.isComplete = !todo.isComplete;
+               todo.done = !todo.done;
            }
 
            return todo;

@@ -21,8 +21,9 @@ const TodoForm = (props) => {
         props.onSubmit({
             id: random,
             name: input,
-            description: '',
-            to: ''
+            done: false,
+            memberid: null,
+            projectid: null
         });
 
         setInput('');
