@@ -54,8 +54,7 @@ namespace backend.Controllers
             return CreatedAtAction(nameof(GetById), new { id = newTask.ID }, newTask);
         }
 
-        [HttpDelete]
-        [Route("{eventToDeleteId}")]
+        [HttpDelete("{taskToDeleteId}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Delete(int taskToDeleteId)
