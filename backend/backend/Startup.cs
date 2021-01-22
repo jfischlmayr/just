@@ -25,7 +25,7 @@ namespace backend
             services.AddDbContextPool<JustDataContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
 
             services.AddCors(options => options.AddDefaultPolicy(builder =>
-                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod()));
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

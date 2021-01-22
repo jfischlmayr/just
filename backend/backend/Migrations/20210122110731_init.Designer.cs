@@ -9,8 +9,8 @@ using backend.Models;
 namespace backend.Migrations
 {
     [DbContext(typeof(JustDataContext))]
-    [Migration("20210118165449_Todo")]
-    partial class Todo
+    [Migration("20210122110731_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,14 +26,17 @@ namespace backend.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50) CHARACTER SET utf8mb4");
 
                     b.Property<string>("HouseNumber")
+                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Street")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50) CHARACTER SET utf8mb4");
 
@@ -52,6 +55,7 @@ namespace backend.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("AppointmentName")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50) CHARACTER SET utf8mb4");
 
@@ -59,6 +63,7 @@ namespace backend.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Notes")
+                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("varchar(1000) CHARACTER SET utf8mb4");
 
@@ -94,18 +99,22 @@ namespace backend.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Firstname")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Lastname")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50) CHARACTER SET utf8mb4");
 
@@ -142,29 +151,12 @@ namespace backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("AddressID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("From")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Notes")
-                        .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000) CHARACTER SET utf8mb4");
-
-                    b.Property<int>("Priority")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100) CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("To")
-                        .HasColumnType("datetime(6)");
-
                     b.HasKey("ID");
-
-                    b.HasIndex("AddressID");
 
                     b.ToTable("Projects");
                 });
@@ -193,6 +185,7 @@ namespace backend.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50) CHARACTER SET utf8mb4");
 
@@ -207,45 +200,25 @@ namespace backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000) CHARACTER SET utf8mb4");
+                    b.Property<bool>("Done")
+                        .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("MemberID")
+                    b.Property<int?>("MemberID")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100) CHARACTER SET utf8mb4");
 
-                    b.Property<int>("ProjectID")
+                    b.Property<int?>("ProjectID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ProjectID");
 
                     b.ToTable("Tasks");
-                });
-
-            modelBuilder.Entity("backend.Models.ToDo", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(10000)
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("To")
-                        .HasColumnType("datetime(6)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("ToDos");
                 });
 
             modelBuilder.Entity("backend.Models.MemberRole", b =>
@@ -257,18 +230,21 @@ namespace backend.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("backend.Models.Project", b =>
+            modelBuilder.Entity("backend.Models.Task", b =>
                 {
-                    b.HasOne("backend.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressID");
-
-                    b.Navigation("Address");
+                    b.HasOne("backend.Models.Project", null)
+                        .WithMany("Tasks")
+                        .HasForeignKey("ProjectID");
                 });
 
             modelBuilder.Entity("backend.Models.Member", b =>
                 {
                     b.Navigation("Roles");
+                });
+
+            modelBuilder.Entity("backend.Models.Project", b =>
+                {
+                    b.Navigation("Tasks");
                 });
 #pragma warning restore 612, 618
         }

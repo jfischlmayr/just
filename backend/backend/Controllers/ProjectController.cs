@@ -34,10 +34,10 @@ namespace backend.Controllers
             address.ZIPCode = 4020;
 
             project.Title = "Fling";
-            project.Notes = "An application for transfering Handy notifications to an pc";
-            project.From = DateTime.Parse("09-10-2020");
-            project.To = DateTime.Parse("09-05-2021");
-            project.Address = address;
+            //project.Notes = "An application for transfering Handy notifications to an pc";
+            //project.From = DateTime.Parse("09-10-2020");
+            //project.To = DateTime.Parse("09-05-2021");
+            //project.Address = address;
 
             await _context.AddAsync(project);
             await _context.SaveChangesAsync();
