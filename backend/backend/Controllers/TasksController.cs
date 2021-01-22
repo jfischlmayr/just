@@ -22,7 +22,12 @@ namespace backend.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Models.Task>))]
-        public async Task<IActionResult> GetAll() => Ok(await _context.Tasks.ToListAsync());
+        public async Task<IActionResult> GetAll()
+        {
+            var list = await _context.Tasks.ToListAsync();
+
+            return Ok(list.OrderBy(t => t.Name));
+        }
 
         [HttpGet("{id}", Name = nameof(GetById))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Models.Task))]
