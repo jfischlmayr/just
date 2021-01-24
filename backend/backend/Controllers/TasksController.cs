@@ -22,7 +22,12 @@ namespace backend.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Models.Task>))]
-        public async Task<IActionResult> GetAll() => Ok(await _context.Tasks.ToListAsync());
+        public async Task<IActionResult> GetAll()
+        {
+            var list = await _context.Tasks.ToListAsync();
+
+            return Ok(list.OrderBy(t => t.Name));
+        }
 
         [HttpGet("{id}", Name = nameof(GetById))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Models.Task))]
@@ -49,8 +54,7 @@ namespace backend.Controllers
             return CreatedAtAction(nameof(GetById), new { id = newTask.ID }, newTask);
         }
 
-        [HttpDelete]
-        [Route("{eventToDeleteId}")]
+        [HttpDelete("{taskToDeleteId}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Delete(int taskToDeleteId)
