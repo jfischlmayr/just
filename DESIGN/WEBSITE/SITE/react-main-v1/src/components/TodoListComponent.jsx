@@ -23,16 +23,6 @@ const TodoListComponent = () => {
     }
 
 
-    /*const [] = useAxios({
-    });
-    /*useEffect(async () => {
-        const response = await fetch("http://localhost:8080/api/todo");
-        const data = await response.json();
-        const item = data.results[0];
-        console.log("fetch");
-    }, []);*/
-
-
     const addTodo = todo => {
         console.log(todo);
         console.log(todo.name);
@@ -72,13 +62,30 @@ const TodoListComponent = () => {
     };
 
     const completeTodo = id => {
-        let updatedTodos = todos.map(todo => {
+       let updatedTodos = todos.map(todo => {
            if(todo.id === id){
-               todo.done = !todo.done;
-           }
+               const tempTodo = {
+                   id: id,
+                   name: todo.name,
+                   done: true,
+                   memberid: todo.memberid,
+                   projectid: todo.projectid
+               }
+               axios
+                   .put(`http://localhost:8080/api/tasks/${todo.id}`, tempTodo)
+                   .then(res => {
+                       console.log(res);
+                       refreshPage();
+                   })
+                   .catch(err => {
+                       console.log(err)
+                   })
 
+           }
            return todo;
         });
+
+        console.log(updatedTodos);
         setTodos(updatedTodos);
         console.log('completed todo');
     }
