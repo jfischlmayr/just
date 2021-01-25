@@ -67,7 +67,7 @@ const TodoListComponent = () => {
                const tempTodo = {
                    id: id,
                    name: todo.name,
-                   done: true,
+                   done: !todo.done,
                    memberid: todo.memberid,
                    projectid: todo.projectid
                }

@@ -56,10 +56,10 @@ namespace backend.Controllers
         }
 
         // GET api/<ProjectController>/5
-        [HttpGet("{id}", Name = nameof(GetById))]
+        [HttpGet("{id}", Name = nameof(GetProjectById))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Models.Project))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetProjectById(int id)
         {
             var existingProject = await _context.Projects.FirstOrDefaultAsync(p => p.ID == id);
             if (existingProject == null) return NotFound();
@@ -79,7 +79,7 @@ namespace backend.Controllers
 
             await _context.Projects.AddAsync(newProject);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = newProject.ID }, newProject);
+            return CreatedAtAction(nameof(GetProjectById), new { id = newProject.ID }, newProject);
         }
 
         // PUT api/<ProjectController>/5
