@@ -1,4 +1,5 @@
 ﻿using backend.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -46,33 +47,39 @@ namespace backend.Controllers
 
         // GET: api/<ProjectController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Models.Project>))]
+        public async Task<IActionResult> GetAll()
         {
-            return await _context.Projects.ToListAsync();
+            var list = await _context.Projects.ToListAsync();
+
+            return Ok(list.OrderBy(p => p.Title));
         }
 
         // GET api/<ProjectController>/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Project>> GetProject(int id)
+        [HttpGet("{id}", Name = nameof(GetById))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Models.Project))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetById(int id)
         {
-            var project = await _context.Projects.FindAsync(id);
-
-            if (project == null)
-            {
-                return NotFound();
-            }
-
-            return project;
+            var existingProject = await _context.Projects.FirstOrDefaultAsync(p => p.ID == id);
+            if (existingProject == null) return NotFound();
+            return Ok(existingProject);
         }
 
         // POST api/<ProjectController>
         [HttpPost]
-        public async Task<ActionResult<Project>> PostProject(Project project)
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Models.Project))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Add([FromBody] Models.Project newProject)
         {
-            _context.Projects.Add(project);
-            await _context.SaveChangesAsync();
+            if (newProject.ID < 1)
+            {
+                return BadRequest("Invalid id");
+            }
 
-            return CreatedAtAction("GetProject", new { id = project.ID }, project);
+            await _context.Projects.AddAsync(newProject);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetById), new { id = newProject.ID }, newProject);
         }
 
         // PUT api/<ProjectController>/5
@@ -106,18 +113,20 @@ namespace backend.Controllers
         }
 
         // DELETE api/<ProjectController>/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProject(int id)
+        [HttpDelete("{projectToDeleteId}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> Delete(int projectToDeleteId)
         {
-            var project = await _context.Projects.FindAsync(id);
-            if (project == null)
+            try
+            {
+                _context.Projects.Remove(_context.Projects.Find(projectToDeleteId));
+                await _context.SaveChangesAsync();
+            }
+            catch (ArgumentException)
             {
                 return NotFound();
             }
-
-            _context.Projects.Remove(project);
-            await _context.SaveChangesAsync();
-
             return NoContent();
         }
 
