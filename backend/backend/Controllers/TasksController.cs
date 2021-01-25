@@ -44,14 +44,46 @@ namespace backend.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Add([FromBody] Models.Task newTask)
         {
-            if (newTask.ID < 1)
+            if (newTask.ID < 0)
             {
                 return BadRequest("Invalid id");
             }
+            newTask.ID = await _context.Tasks.CountAsync() + 1;
 
             await _context.Tasks.AddAsync(newTask);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetById), new { id = newTask.ID }, newTask);
+        }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Models.Task))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Put(int id, [FromBody] Models.Task taskToModify)
+        {
+            if (id != taskToModify.ID)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(taskToModify).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TaskExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
         [HttpDelete("{taskToDeleteId}")]
@@ -69,6 +101,11 @@ namespace backend.Controllers
                 return NotFound();
             }
             return NoContent();
+        }
+
+        private bool TaskExists(int id)
+        {
+            return _context.Tasks.Any(t => t.ID == id);
         }
     }
 }
