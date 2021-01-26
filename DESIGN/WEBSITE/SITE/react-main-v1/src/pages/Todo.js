@@ -10,7 +10,7 @@ const Todo = () => {
 
     return (
         <div className='todo'>
-            <h1>TODOS</h1>
+            <h1>TASKS</h1>
             <div style={{width: 200}}>
                 <Dropdown
                     prompt='Select project... '

@@ -43,7 +43,7 @@ const TodoListComponent = () => {
                 console.log(err)
             })
 
-        console.log('added todo');
+        console.log('added task');
     };
 
     const removeTodo = id => {
@@ -58,7 +58,7 @@ const TodoListComponent = () => {
                 console.log(err)
             })
 
-        console.log('removed todo');
+        console.log('removed task');
     };
 
     const completeTodo = id => {
@@ -87,7 +87,7 @@ const TodoListComponent = () => {
 
         console.log(updatedTodos);
         setTodos(updatedTodos);
-        console.log('completed todo');
+        console.log('completed task');
     }
 
     return (

@@ -32,7 +32,7 @@ const TodoForm = (props) => {
         <div>
             <form className='todo-form' onSubmit={handleSubmit}>
                 <input type='text'
-                       placeholder='Add a todo'
+                       placeholder='Add a task'
                        value={input}
                        name='text'
                        className='todo-input'
@@ -40,7 +40,7 @@ const TodoForm = (props) => {
                        ref={inputRef}
                 />
 
-                <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add Todo</Button>
+                <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add Task</Button>
             </form>
         </div>
     );
