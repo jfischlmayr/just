@@ -39,6 +39,7 @@ const ProjectForm = (props) => {
                     ref={inputRef}
                 />
             </form>
+            <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add Project</Button>
         </div>
     );
 };
