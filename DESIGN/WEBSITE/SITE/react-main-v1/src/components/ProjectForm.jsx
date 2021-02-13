@@ -38,8 +38,9 @@ const ProjectForm = (props) => {
                     onChange={handleChange}
                     ref={inputRef}
                 />
+
+                <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add </Button>
             </form>
-            <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add Project</Button>
         </div>
     );
 };
