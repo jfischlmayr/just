@@ -8,7 +8,7 @@ const ProjectComponent = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/projects', {})
+        axios.get('http://localhost:8080/api/project', {})
             .then(res => {
                 console.log(res);
                 setProjects(res.data);
@@ -20,12 +20,12 @@ const ProjectComponent = () => {
 
 
     const addProject = project => {
-
+        console.log('bubub');
         console.log(project);
-        axios.post('http://localhost:8080/api/projects/', JSON.stringify(project),{
+        axios.post('http://localhost:8080/api/project/', JSON.stringify(project),{
             headers: {
-            'Content-Type': 'application/json'
-        }})
+                'Content-Type': 'application/json'
+            }})
             .then(res => {
                 console.log(res);
                 const newProjects = [project.name, ...projects]
@@ -39,7 +39,7 @@ const ProjectComponent = () => {
     }
 
     const removeProject = id =>{
-        axios.delete(`http://localhost:8080/api/tasks/${id}`)
+        axios.delete(`http://localhost:8080/api/project/${id}`)
             .then(res =>{
                 console.log(res);
                 const removeArr = [...projects].filter(project => project.id !== id);

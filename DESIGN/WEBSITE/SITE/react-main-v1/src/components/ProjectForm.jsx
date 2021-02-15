@@ -19,9 +19,9 @@ const ProjectForm = (props) => {
         e.preventDefault();
         props.onSubmit({
            id: 0,
-           name: input,
-           todoid: null,
-           memberid: null
+           title: input,
+           tasks: null
+           /*memberid: null*/
         });
         setInput('');
     }
@@ -39,7 +39,7 @@ const ProjectForm = (props) => {
                     ref={inputRef}
                 />
 
-                <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add </Button>
+                <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add Project</Button>
             </form>
         </div>
     );
