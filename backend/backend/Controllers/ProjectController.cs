@@ -72,10 +72,11 @@ namespace backend.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Add([FromBody] Models.Project newProject)
         {
-            if (newProject.ID < 1)
+            if (newProject.ID < 0)
             {
                 return BadRequest("Invalid id");
             }
+            newProject.ID = await _context.Tasks.CountAsync() + 1;
 
             await _context.Projects.AddAsync(newProject);
             await _context.SaveChangesAsync();
