@@ -22,7 +22,7 @@ const TodoItem = ({todos, completeTodo, removeTodo, updateTodo}) => {
     }
 
     return todos.map((todo, index) => (
-       <div className={todo.isComplete ? 'todo-row complete' : 'todo-row'} key={index}>
+       <div className={todo.done ? 'todo-row complete' : 'todo-row'} key={index}>
            <div key={todo.id} >
                {todo.name}
            </div>

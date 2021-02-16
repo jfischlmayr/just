@@ -26,8 +26,15 @@ services:
     backend:
         build: ../backend
         ports:
-            - 8080:80
+            - 8080:8080
         environment:
             ConnectionStrings__DefaultConnection: "Server=database;Port=3306;Database=just;User=root;Password=wearejustpros"
         networks:
+            - just-net
+      
+    frontend:
+        build: ../DESIGN/WEBSITE/SITE/react-main-v1
+        ports:
+            - 3001:3000
+        environment:
             - just-net

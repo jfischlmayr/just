@@ -17,9 +17,8 @@ const TodoForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        var random = Math.floor(Math.random() * 1000000);
         props.onSubmit({
-            id: random,
+            id: 0,
             name: input,
             done: false,
             memberid: null,
@@ -33,7 +32,7 @@ const TodoForm = (props) => {
         <div>
             <form className='todo-form' onSubmit={handleSubmit}>
                 <input type='text'
-                       placeholder='Add a todo'
+                       placeholder='Add a task'
                        value={input}
                        name='text'
                        className='todo-input'
@@ -41,7 +40,7 @@ const TodoForm = (props) => {
                        ref={inputRef}
                 />
 
-                <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add Todo</Button>
+                <Button onClick={handleSubmit} type="button" buttonStyle='btn--submit--solid' buttonSize='btn--small'>Add Task</Button>
             </form>
         </div>
     );
