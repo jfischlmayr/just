@@ -3,10 +3,15 @@ import * as AiIcons from 'react-icons/ai';
 import '../css/ProjectCard.css';
 
 const ProjectCard = ({projects, removeProject}) => {
+
+
+
+
+
     return projects.map((project, index) =>(
-        <div className='project-card'>
+        <div className='project-card' key={index}>
             <div key={project.id}>
-                {project.name}
+                {project.title}
             </div>
             <div className='icons'>
                 <AiIcons.AiOutlineCloseCircle
