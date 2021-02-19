@@ -5,8 +5,8 @@ import '../css/ProjectCard.css';
 const ProjectCard = ({projects, removeProject}) => {
 
 
+    console.log(projects);
 
-    console.log('ay');
 
     return projects.map((project, index) =>(
         <div className='project-card' key={index}>
@@ -20,6 +20,8 @@ const ProjectCard = ({projects, removeProject}) => {
             </div>
         </div>
     ));
+
+
 };
 
 export default ProjectCard;

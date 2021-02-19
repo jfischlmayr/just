@@ -11,20 +11,15 @@ const ProjectComponent = () => {
         axios.get('http://localhost:8080/api/project', {})
             .then(res => {
                 console.log(res);
-                console.log('no error');
                 setProjects(res.data);
             })
             .catch(err => {
                 console.log(err);
-                console.log('error beginning');
             })
     }, [])
 
 
     const addProject = project => {
-        console.log('bubub');
-        console.log(project);
-        console.log(JSON.stringify(project));
         axios.post('http://localhost:8080/api/project/', JSON.stringify(project),{
             headers: {
                 'Content-Type': 'application/json'
@@ -37,7 +32,6 @@ const ProjectComponent = () => {
             })
             .catch(err =>{
                 console.log(err);
-                console.log('fehler');
             })
         console.log('added project');
     }

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import TodoForm from "./TodoForm";
 import * as AiIcons from 'react-icons/ai';
 
 
 const TodoItem = ({todos, completeTodo, removeTodo}) => {
+
+    console.log(todos);
 
     return todos.map((todo, index) => (
        <div className={todo.done ? 'todo-row complete' : 'todo-row'} key={index}>

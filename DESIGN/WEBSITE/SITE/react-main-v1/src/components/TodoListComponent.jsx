@@ -18,9 +18,7 @@ const TodoListComponent = () => {
             })
     }, [])
 
-    const refreshPage = () => {
-        window.location.reload();
-    }
+
 
 
     const addTodo = todo => {
@@ -37,7 +35,7 @@ const TodoListComponent = () => {
                 console.log(res);
                 const newTodos = [todo.name, ...todos]
                 setTodos(newTodos);
-                refreshPage();
+                window.location.reload();
             })
             .catch(err =>{
                 console.log(err)
@@ -75,7 +73,7 @@ const TodoListComponent = () => {
                    .put(`http://localhost:8080/api/tasks/${todo.id}`, tempTodo)
                    .then(res => {
                        console.log(res);
-                       refreshPage();
+                       window.location.reload();
                    })
                    .catch(err => {
                        console.log(err)
