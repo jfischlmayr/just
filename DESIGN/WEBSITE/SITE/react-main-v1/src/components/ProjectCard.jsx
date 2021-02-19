@@ -6,7 +6,7 @@ const ProjectCard = ({projects, removeProject}) => {
 
 
 
-
+    console.log('ay');
 
     return projects.map((project, index) =>(
         <div className='project-card' key={index}>
