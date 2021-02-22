@@ -17,9 +17,8 @@ const ProjectForm = (props) => {
 
     const handleSubmit = e =>{
         e.preventDefault();
-        let random = Math.floor(Math.random() * Math.floor(100000));
         props.onSubmit({
-           id: random,
+           id: null,
            title: input,
            tasks: null
         });
