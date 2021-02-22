@@ -71,19 +71,6 @@ namespace backend.Controllers
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Models.Project))]
         public async Task<IActionResult> Add([FromBody] Models.Project newProject)
         {
-            var projects = _context.Projects;
-
-
-            if (await projects.CountAsync() == 0)
-            {
-                newProject.ID = 1;
-            }
-            else
-            {
-                newProject.ID = await projects.CountAsync() + 1;
-
-            }
-
             await _context.Projects.AddAsync(newProject);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetProjectById), new { id = newProject.ID }, newProject);

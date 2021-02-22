@@ -44,12 +44,6 @@ namespace backend.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Add([FromBody] Models.Task newTask)
         {
-            if (newTask.ID < 0)
-            {
-                return BadRequest("Invalid id");
-            }
-            newTask.ID = await _context.Tasks.CountAsync() + 1;
-
             await _context.Tasks.AddAsync(newTask);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetById), new { id = newTask.ID }, newTask);
