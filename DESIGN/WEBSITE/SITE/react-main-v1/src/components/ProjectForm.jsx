@@ -18,7 +18,7 @@ const ProjectForm = (props) => {
     const handleSubmit = e =>{
         e.preventDefault();
         props.onSubmit({
-           id: null,
+           id: 0,
            title: input,
            tasks: null
         });

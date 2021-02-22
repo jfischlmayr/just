@@ -18,7 +18,7 @@ const TodoForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         props.onSubmit({
-            id: null,
+            id: 0,
             name: input,
             done: false,
             memberid: null,
