@@ -27,20 +27,19 @@
 .project-card{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    font-size: 1em;
     color: black;
     background: var(--white);
     margin: 0.9em auto 0.9em 3em;
-    padding: 16px;
-    border-radius: 5px;
+    padding: 1.3em;
+    border-radius: 10px;
+    height: 10em;
     width: 90%;
     filter: drop-shadow(0.13rem 0.13rem 0.13rem var(--shadow));
 }
 
 .icons {
     display: flex;
-    align-items: center;
-    font-size: 24px;
     cursor: pointer;
 }
 
