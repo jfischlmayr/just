@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import '../css/CalendarComponent.css';
 import axios from "axios";
+import TodoListComponent from "./TodoListComponent";
 
 const CalendarComponent = () => {
-    const [todos, setTodos] = useState([]);
+    const [calendars, setCalendars] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:8080/api/calendar', {})
             .then(res => {
                 console.log(res);
-                setTodos(res.data);
+                setCalendars(res.data);
             })
             .catch(err =>{
                 console.log(err)
@@ -28,8 +29,8 @@ const CalendarComponent = () => {
         })
             .then(res => {
                 console.log(res);
-                const newTodos = [calendar.name, ...calendar]
-                setCalendar(newCalendar);
+                const newCalendar = [calendar.name, ...calendars]
+                setCalendars(newCalendar);
                 window.location.reload();
             })
             .catch(err =>{
@@ -39,3 +40,4 @@ const CalendarComponent = () => {
         console.log('added');
     };
 
+export default CalendarComponent;
