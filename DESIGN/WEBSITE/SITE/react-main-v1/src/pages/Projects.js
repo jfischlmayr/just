@@ -9,7 +9,8 @@ const Projects = () => {
             <h1>Projects</h1>
 
             <div className='projectWrapper'>
-                <ProjectComponent/>
+                <ProjectComponent />
+
             </div>
         </div>
     );
