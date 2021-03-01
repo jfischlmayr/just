@@ -20,6 +20,7 @@ const ProjectComponent = () => {
 
 
     const addProject = project => {
+        console.log(JSON.stringify(project));
         axios.post('http://localhost:8080/api/project/', JSON.stringify(project),{
             headers: {
                 'Content-Type': 'application/json'
@@ -28,7 +29,6 @@ const ProjectComponent = () => {
                 console.log(res);
                 const newProjects = [project.name, ...projects]
                 setProjects(newProjects);
-                window.location.reload();
             })
             .catch(err =>{
                 console.log(err);
@@ -54,6 +54,7 @@ const ProjectComponent = () => {
         <div className='projectOverview'>
             <ProjectForm onSubmit={addProject}/>
             <ProjectCard projects={projects} removeProject={removeProject}/>
+
         </div>
     );
 };

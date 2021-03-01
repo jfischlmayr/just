@@ -3,15 +3,8 @@ import * as AiIcons from 'react-icons/ai';
 import '../css/ProjectCard.css';
 
 const ProjectCard = ({projects, removeProject}) => {
-
-
-    console.log(projects);
-
-
     return projects.map((project, index) =>(
-
-            <div className='project-card'>
-
+            <div className='project-card' key={index}>
                 <div key={project.id}>
                     <div className='project-title'>
                         {project.title}
@@ -26,12 +19,7 @@ const ProjectCard = ({projects, removeProject}) => {
                         onClick={() => removeProject(project.id)}
                         className='icons'
                 />
-
-
-
             </div>
-
-
     ));
 
 
