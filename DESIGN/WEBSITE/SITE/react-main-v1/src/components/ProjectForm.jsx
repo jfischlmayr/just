@@ -21,7 +21,6 @@ const ProjectForm = (props) => {
            id: 0,
            title: input,
            tasks: null
-           /*memberid: null*/
         });
         setInput('');
     }

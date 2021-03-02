@@ -4,17 +4,25 @@ import '../css/ProjectCard.css';
 
 const ProjectCard = ({projects, removeProject}) => {
     return projects.map((project, index) =>(
-        <div className='project-card'>
-            <div key={project.id}>
-                {project.name}
-            </div>
-            <div className='icons'>
+            <div className='project-card' key={index}>
+                <div key={project.id}>
+                    <div className='project-title'>
+                        {project.title}
+                    </div>
+                    {"\n"}
+                    <div className='project-body'>
+                        Projektmitglied 1: null
+                    </div>
+
+                </div>
                 <AiIcons.AiOutlineCloseCircle
-                    onClick={() => removeProject(project.id)}
+                        onClick={() => removeProject(project.id)}
+                        className='icons'
                 />
             </div>
-        </div>
     ));
+
+
 };
 
 export default ProjectCard;

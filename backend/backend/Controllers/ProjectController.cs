@@ -69,15 +69,8 @@ namespace backend.Controllers
         // POST api/<ProjectController>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Models.Project))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Add([FromBody] Models.Project newProject)
         {
-            if (newProject.ID < 0)
-            {
-                return BadRequest("Invalid id");
-            }
-            newProject.ID = await _context.Tasks.CountAsync() + 1;
-
             await _context.Projects.AddAsync(newProject);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetProjectById), new { id = newProject.ID }, newProject);

@@ -35,6 +35,7 @@ services:
     frontend:
         build: ../DESIGN/WEBSITE/SITE/react-main-v1
         ports:
-            - 3000:3000
-        environment:
+            - 3001:3000
+        networks:
             - just-net
+        stdin_open: true
