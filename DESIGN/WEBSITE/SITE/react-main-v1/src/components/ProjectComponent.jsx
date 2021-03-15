@@ -50,10 +50,22 @@ const ProjectComponent = () => {
         console.log('Deleted Project');
     }
 
+    const updateProject = (id, newValue) =>{
+        axios.put(`http://localhost:8080/api/project/${id}`)
+            .then(res =>{
+                console.log(res);
+                setProjects(prev => prev.map(item => (item.id === id ? newValue : item)));
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+        console.log('updated project');
+    }
+
     return (
         <div className='projectOverview'>
             <ProjectForm onSubmit={addProject}/>
-            <ProjectCard projects={projects} removeProject={removeProject}/>
+            <ProjectCard projects={projects} removeProject={removeProject} updateProject={updateProject}/>
 
         </div>
     );
